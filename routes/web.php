@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('isCustomer')->group(function () {
     Route::get('/dashboard', function () {
-        return view('customer.dashboard');
+        return view('customer.home');
     })->name('dashboard');
     Route::get('/layanan', function () {
         return view('customer.layanan');

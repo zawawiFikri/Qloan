@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/simple-calendar/simple-calendar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/datatables/datatables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <!-- Add these lines to the head section -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.7/css/dataTables.bootstrap4.min.css">
 
