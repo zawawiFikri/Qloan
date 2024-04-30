@@ -15,12 +15,41 @@
                     </a>
                 </div>
 
+                @if(auth()->user() && auth()->user()->hasRole('admin'))
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('dashAdmin')" :active="request()->routeIs('dashAdmin')">
+                        {{ __('Dashboard') }}
+                    </x-nav-link>
+                </div>
+                @endif
                 <!-- Navigation Links -->
+                @if(auth()->user() && auth()->user()->hasRole('customer'))
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('layanan')" :active="request()->routeIs('layanan')">
+                        {{ __('Layanan') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('promo')" :active="request()->routeIs('promo')">
+                        {{ __('Promo') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('artikel')" :active="request()->routeIs('artikel')">
+                        {{ __('Arikel') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
+                        {{ __('About') }}
+                    </x-nav-link>
+                </div>
+                @endif
             </div>
 
             <!-- Settings Dropdown -->

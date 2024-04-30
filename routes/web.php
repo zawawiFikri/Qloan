@@ -27,6 +27,18 @@ Route::middleware('isCustomer')->group(function () {
     Route::get('/dashboard', function () {
         return view('customer.dashboard');
     })->name('dashboard');
+    Route::get('/layanan', function () {
+        return view('customer.layanan');
+    })->name('layanan');
+    Route::get('/promo', function () {
+        return view('customer.promo');
+    })->name('promo');
+    Route::get('/artikel', function () {
+        return view('customer.artikel');
+    })->name('artikel');
+    Route::get('/about', function () {
+        return view('customer.about');
+    })->name('about');
 });
 
 Route::middleware('isAdmin')->group(function () {

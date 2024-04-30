@@ -45,6 +45,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function hasRole($roles)
+    {
+        return $this->roles === $roles;
+    }
     public function dosen(): HasOne
     {
         return $this->hasOne(Customer::class, 'user_id');
