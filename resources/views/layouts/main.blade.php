@@ -97,17 +97,17 @@
                 </div>
 
                 <div class="nav__toggle" id="nav-toggle">
+                @if (auth()->user())
+                <a href="{{ route('profile.edit') }}" class="nav__link" style="margin-right: 20px; font-size: 16px;">Profile</a>
+                <a href="{{ route('logout') }}" 
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();" 
+                    class="nav__link" style="margin-right: 20px; font-size: 16px;">Logout</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                @endif
                         <i class="ri-menu-line"></i>
                 </div>
-
-                <!-- Theme change button -->
-                <!-- <div class="nav__btns">
-                    <i class="ri-moon-line change-theme" id="theme-button"></i>
-
-                    <div class="nav__toggle" id="nav-toggle">
-                        <i class="ri-menu-line"></i>
-                    </div>
-                </div> -->
         </nav>
     </header>
 
