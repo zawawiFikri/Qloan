@@ -269,7 +269,7 @@ the website, in dark theme
 }
 
 .nav__link:hover{
-  color: var(--first-color);
+  color: #0d0083;
 }
 
 /* Show menu */
@@ -285,7 +285,7 @@ the website, in dark theme
 /* Active link */
 .active-link{
   position: relative;
-  color: var(--first-color);
+  color: #0d0083;
 }
 
 .active-link::after{
@@ -309,7 +309,7 @@ the website, in dark theme
 }
 
 .home__img{
-  width: 200px;
+  height: 110%;
   justify-self: center;
 }
 
@@ -335,7 +335,7 @@ the website, in dark theme
 .home__social-follow{
   font-weight: var(--font-medium);
   font-size: var(--smaller-font-size);
-  color: var(--first-color);
+  color: var(--title-color);
   position: relative;
   transform: rotate(90deg);
 }
@@ -345,7 +345,7 @@ the website, in dark theme
   position: absolute;
   width: 1rem;
   height: 2px;
-  background-color: var(--first-color);
+  background-color: var(--title-color);
   right: -45%;
   top: 50%;
 }
@@ -358,7 +358,7 @@ the website, in dark theme
 
 .home__social-link{
   font-size: 1rem;
-  color: var(--first-color);
+  color: #0d0083;
   transition: .3s;
 }
 
@@ -369,7 +369,7 @@ the website, in dark theme
 /*=============== BUTTONS ===============*/
 .button{
   display: inline-block;
-  background-color: var(--first-color);
+  background-color: #0d0083;
   color: #FFF;
   padding: 1rem 1.75rem;
   border-radius: .5rem;
@@ -378,7 +378,8 @@ the website, in dark theme
 }
 
 .button:hover{
-  background-color: var(--first-color-alt);
+  background-color: #050CBD;
+  color: #FFF;
 }
 
 .button__icon{
@@ -396,7 +397,7 @@ the website, in dark theme
 }
 
 .button--link{
-  color: var(--first-color);
+  color: #0d0083;
   font-weight: var(--font-medium);
 }
 
@@ -436,13 +437,13 @@ the website, in dark theme
 
 .about__details-icon{
   font-size: 1rem;
-  color: var(--first-color);
+  color: #0d0083;
   margin-top: .15rem;
 }
 
 /*=============== STEPS ===============*/
 .steps__bg{
-  background-color: var(--first-color);
+  background-color: #0d0083;
   padding: 3rem 2rem 2rem;
   border-radius: 1rem;
 }
@@ -464,7 +465,7 @@ the website, in dark theme
 
 .steps__card-number{
   display: inline-block;
-  background-color: var(--first-color-alt);
+  background-color: #0d0083;
   color: #FFF;
   padding: .5rem .75rem;
   border-radius: .25rem;
@@ -525,7 +526,7 @@ the website, in dark theme
   position: absolute;
   right: 0;
   bottom: 0;
-  background-color: var(--first-color);
+  background-color: #0d0083;
   color: #FFF;
   padding: .25rem;
   border-radius: .35rem;
@@ -533,7 +534,7 @@ the website, in dark theme
 }
 
 .product__button:hover{
-  background-color: var(--first-color-alt);
+  background-color: #050CBD;
 }
 
 .product__circle{
@@ -614,7 +615,7 @@ the website, in dark theme
 /*Rotate icon, change color of titles and background*/
 .accordion-open .questions__header,
 .accordion-open .questions__content{
-  background-color: var(--first-color);
+  background-color: #0d0083;
 }
 
 .accordion-open .questions__item-title,
@@ -812,7 +813,7 @@ the website, in dark theme
 /*=============== SCROLL UP ===============*/
 .scrollup{
   position: fixed;
-  background-color: var(--first-color);
+  background-color: #0d0083;
   right: 1rem;
   bottom: -30%;
   display: inline-flex;
@@ -829,7 +830,7 @@ the website, in dark theme
 }
 
 .scrollup:hover{
-  background-color: var(--first-color-alt);
+  background-color:#050CBD;
   opacity: 1;
 }
 
