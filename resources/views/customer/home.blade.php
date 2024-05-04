@@ -129,7 +129,7 @@
                     <article class="product__card">
                         <div class="product__circle"></div>
 
-                        <img src="assets/img/product1.png" alt="" class="product__img">
+                        <img src="assets/img/kiloan.png" alt="" class="product__img">
 
                         <h3 class="product__title">Cacti Plant</h3>
                         <span class="product__price">$19.99</span>
@@ -142,7 +142,7 @@
                     <article class="product__card">
                         <div class="product__circle"></div>
 
-                        <img src="assets/img/product2.png" alt="" class="product__img">
+                        <img src="assets/img/satuan.png" alt="" class="product__img">
 
                         <h3 class="product__title">Cactus Plant</h3>
                         <span class="product__price">$11.99</span>
@@ -155,7 +155,7 @@
                     <article class="product__card">
                         <div class="product__circle"></div>
 
-                        <img src="assets/img/product3.png" alt="" class="product__img">
+                        <img src="assets/img/sepatu.png" alt="" class="product__img">
 
                         <h3 class="product__title">Aloe Vera Plant</h3>
                         <span class="product__price">$7.99</span>
@@ -168,7 +168,7 @@
                     <article class="product__card">
                         <div class="product__circle"></div>
 
-                        <img src="assets/img/product4.png" alt="" class="product__img">
+                        <img src="assets/img/bayi.png" alt="" class="product__img">
 
                         <h3 class="product__title">Succulent Plant</h3>
                         <span class="product__price">$5.99</span>
@@ -181,7 +181,7 @@
                     <article class="product__card">
                         <div class="product__circle"></div>
 
-                        <img src="assets/img/product5.png" alt="" class="product__img">
+                        <img src="assets/img/express.png" alt="" class="product__img">
 
                         <h3 class="product__title">Succulent Plant</h3>
                         <span class="product__price">$10.99</span>
@@ -194,7 +194,7 @@
                     <article class="product__card">
                         <div class="product__circle"></div>
 
-                        <img src="assets/img/product6.png" alt="" class="product__img">
+                        <img src="assets/img/24.png" alt="" class="product__img">
 
                         <h3 class="product__title">Green Plant</h3>
                         <span class="product__price">$8.99</span>

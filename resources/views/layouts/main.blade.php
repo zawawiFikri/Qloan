@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
-    <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/feather/feather.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/icons/flags/flags.css') }}">
@@ -69,7 +68,7 @@
                             </a>
                             <div class="dropdown-menu">
                                 <div class="user-header">
-                                    <div class="avatar avatar-sm">
+                                    <!-- <div class="avatar avatar-sm">
                                         @if(auth()->user()->avatar)
                                             <img src="{{ asset(auth()->user()->avatar) }}"
                                                 alt="{{ auth()->user()->name }}" class="avatar-img rounded-circle" style="object-position: center top;">
@@ -77,7 +76,7 @@
                                             <img src="{{ asset('assets/img/avatar-01.png') }}" alt="{{ auth()->user()->name }}"
                                                 class="avatar-img rounded-circle">
                                         @endif
-                                    </div>
+                                    </div> -->
                                     <a class="dropdown-item" href="{{ route('profile.edit') }}">Edit Profil</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

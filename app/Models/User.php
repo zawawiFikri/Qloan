@@ -50,7 +50,7 @@ class User extends Authenticatable
     {
         return $this->roles === $roles;
     }
-    public function dosen(): HasOne
+    public function customer(): HasOne
     {
         return $this->hasOne(Customer::class, 'user_id');
     }
