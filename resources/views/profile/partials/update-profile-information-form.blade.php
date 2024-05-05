@@ -47,6 +47,7 @@
             @endif
         </div>
 
+        @if(Auth()->User()->roles == "custoemer")
         <div>
             <x-input-label for="alamat" :value="__('Alamat')" />
             <x-text-input id="alamat" name="alamat" type="text" class="mt-1 block w-full" :value="old('alamat', $customer->alamat)" required autofocus autocomplete="alamat" />
@@ -58,6 +59,7 @@
             <x-text-input id="NoTlp" name="NoTlp" type="text" class="mt-1 block w-full" :value="old('NoTlp', $customer->NoTlp)" required autofocus autocomplete="NoTlp" />
             <x-input-error class="mt-2" :messages="$errors->get('NoTlp')" />
         </div>
+        @endif
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>

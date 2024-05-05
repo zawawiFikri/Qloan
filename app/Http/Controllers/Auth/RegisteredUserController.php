@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\ChFavorite;
 use App\Models\Customer;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -53,6 +54,14 @@ class RegisteredUserController extends Controller
         if ($user->roles = "customer") {
             Customer::create([
                 'user_id' => $user->id,
+            ]);
+            ChFavorite::create([
+                'user_id' => $user->id,
+                'favorite_id' => 2,
+            ]);
+            ChFavorite::create([
+                'user_id' => $user->id,
+                'favorite_id' => 3,
             ]);
         }
 

@@ -70,14 +70,15 @@
                                 <div class="user-header">
                                     <!-- <div class="avatar avatar-sm">
                                         @if(auth()->user()->avatar)
-                                            <img src="{{ asset(auth()->user()->avatar) }}"
-                                                alt="{{ auth()->user()->name }}" class="avatar-img rounded-circle" style="object-position: center top;">
+                                            <img src="{{ Chatify::getUserWithAvatar(Auth::user())->avatar }}"
+                                                alt="{{ auth()->user()->name }}" class="avatar-img rounded-circle" style="object-position: center top; height: 50px; weidth:50px;">
                                         @else
                                             <img src="{{ asset('assets/img/avatar-01.png') }}" alt="{{ auth()->user()->name }}"
                                                 class="avatar-img rounded-circle">
                                         @endif
                                     </div> -->
                                     <a class="dropdown-item" href="{{ route('profile.edit') }}">Edit Profil</a>
+                                    <a class="dropdown-item" href="{{ route('user') }}">Chat</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         Logout

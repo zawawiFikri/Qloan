@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\vendor\Chatify\MessagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::middleware('isCustomer')->group(function () {
     Route::get('/dashboard', function () {
         return view('customer.home');
     })->name('dashboard');
+    Route::get('/chatify/2', [MessagesController::class, 'index'])->name('user');
     Route::get('/layanan', function () {
         return view('customer.layanan');
     })->name('layanan');
@@ -43,7 +45,7 @@ Route::middleware('isCustomer')->group(function () {
 
 Route::middleware('isAdmin')->group(function () {
     Route::get('/dashAdmin', function () {
-        return view('admin.admin');
+        return view('admin.dashboard');
     })->name('dashAdmin');
 });
 
