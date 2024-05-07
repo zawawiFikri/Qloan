@@ -1,6 +1,9 @@
 <?php
 
 namespace Database\Seeders;
+use App\Models\User;
+use App\Models\Customer;
+use App\Models\Admin;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -12,11 +15,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory(4)->create()->each(function ($user) {
+            if ($user->roles == "customer") {
+                Customer::create([
+                    'user_id' => $user->id,
+                ]);
+            }
+            if($user->roles == "admin"){
+                Admin::create([
+                    'user_id' => $user->id,
+                ]);
+            }
+        });
     }
 }
