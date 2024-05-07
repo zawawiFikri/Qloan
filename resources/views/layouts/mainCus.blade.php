@@ -61,7 +61,7 @@
                     <li class="nav__item">
                         <a href="#contact" class="nav__link">Contact Us</a>
                     </li>
-                    @if (auth()->user())
+                    @if(auth()->user() && auth()->user()->hasRole('customer'))
                         <li class="nav__item dropdown">
                             <a href="#" class="nav__link" data-bs-toggle="dropdown">
                                 <h6>{{ auth()->user()->name }}</h6>
@@ -89,6 +89,10 @@
                                 </div>
                             </div>
                         </li>
+                    @else
+                    <li class="nav__item">
+                        <a href="/login" class="nav__link">Login</a>
+                    </li>
                     @endif
                 </ul>
 

@@ -61,6 +61,14 @@
         </div>
         @endif
 
+        @if(Auth()->User()->roles == "admin")
+        <div>
+            <x-input-label for="role_admin" :value="__('Role admin')" />
+            <x-text-input id="role_admin" name="role_admin" type="text" class="mt-1 block w-full" :value="old('role_admin', $admin->role_admin)" required autofocus autocomplete="role_admin" />
+            <x-input-error class="mt-2" :messages="$errors->get('role_admin')" />
+        </div>
+        @endif
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 

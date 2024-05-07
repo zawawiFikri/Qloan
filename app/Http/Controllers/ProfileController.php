@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Customer;
+use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
@@ -20,7 +21,8 @@ class ProfileController extends Controller
     {
         $user = auth()->user();
         $customer = $user->customer;
-        return view('profile.edit', compact('user', 'customer'));
+        $admin = $user->admin;
+        return view('profile.edit', compact('user', 'customer', 'admin'));
     }
 
     /**
@@ -37,12 +39,21 @@ class ProfileController extends Controller
 
         $user->save();
 
+        if(auth()->user()->customer){
         $cus = auth()->user()->customer ?? new Customer();
         $cus->alamat = $request->alamat;
         $cus->NoTlp = $request->NoTlp;
         $cus->save();
-
         $user->customer()->save($cus);
+        }
+
+        if(auth()->user()->admin){
+        $admin = auth()->user()->admin ?? new Admin();
+        $admin->role_admin = $request->role_admin;
+        $admin->save();
+
+        $user->admin()->save($admin);
+        }
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }

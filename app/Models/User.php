@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Customer;
+use App\Models\Admin;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Authenticatable
@@ -50,8 +51,14 @@ class User extends Authenticatable
     {
         return $this->roles === $roles;
     }
+
     public function customer(): HasOne
     {
         return $this->hasOne(Customer::class, 'user_id');
+    }
+
+    public function admin(): HasOne
+    {
+        return $this->hasOne(Admin::class, 'user_id');
     }
 }

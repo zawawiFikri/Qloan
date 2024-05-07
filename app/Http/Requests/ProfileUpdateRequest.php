@@ -17,11 +17,21 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         $user = auth()->user();
+        if(auth()->user()->customer){
         return [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
             'alamat' => ['required', 'string', 'max:255'],
             'NoTlp' => ['required', 'numeric'],
         ];
+        }
+
+        if(auth()->user()->admin){
+        return [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
+            'role_admin' => ['required', 'string'],
+        ];
+        }
     }
 }

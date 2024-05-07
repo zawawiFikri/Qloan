@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\vendor\Chatify\MessagesController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ use App\Http\Controllers\vendor\Chatify\MessagesController;
 |
 */
 
-Route::redirect('/', 'login');
+Route::redirect('/', 'Qlos-laundry');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -47,6 +48,16 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/dashAdmin', function () {
         return view('admin.dashboard');
     })->name('dashAdmin');
+    Route::get('/chatify', [MessagesController::class, 'index'])->name('userAdmin');
+    // Route::get('/users', function () {
+    //     return view('admin.user');
+    // })->name('users');
+
+     //User
+     Route::get('users', [UserController::class, 'dataUsers'])->name('users');
+     Route::post('/create_user', [UserController::class, 'create'])->name('create_user'); 
+     Route::post('/edit_data_user/{id}', [UserController::class, 'update'])->name('edit_data_user');  
+     Route::post('/delete_user/{id}', [UserController::class, 'destroy'])->name('delete_user');   
 });
 
 Route::middleware('isKaryawan')->group(function () {
