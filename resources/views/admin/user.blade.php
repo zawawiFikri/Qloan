@@ -198,4 +198,26 @@
         </div>
     </div>
 </div>
+
+<script>
+  $(document).ready(function () {
+    $('#tabel-user').DataTable({
+      "paging": true,
+      "pageLength": 5,
+      "searching": true,
+      "ordering": false,
+      "info": false,
+      "language": {
+        "search": "Mencari",
+        "lengthMenu": "Tampil _MENU_ entri",
+        "paginate": {
+          "first": "Pertama",
+          "last": "Terakhir",
+          "next": "Selanjutnya",
+          "previous": "Sebelumnya"
+        }
+      }
+    });
+  });
+</script>
 @endsection

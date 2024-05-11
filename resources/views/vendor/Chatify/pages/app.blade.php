@@ -5,7 +5,7 @@
         {{-- Header and search bar --}}
         <div class="m-header">
             <nav>
-                <a href="#"><i class="fas fa-inbox"></i> <span class="messenger-headTitle">MESSAGES</span> </a>
+                <a href="#"><i class="fas fa-inbox"></i> <span class="messenger-headTitle">QLOS-LAUNDRY</span> </a>
                 {{-- header buttons --}}
                 <nav class="m-header-right">
                     <a href="#"><i class="fas fa-cog settings-btn"></i></a>
@@ -33,7 +33,7 @@
                {{-- Saved Messages --}}
               
                {{-- Contact --}}
-               <p class="messenger-title"><span>All Messages</span></p>
+               <p class="messenger-title"><span>Semua Pesan</span></p>
                <div class="listOfContacts" style="width: 100%;height: calc(100% - 272px);position: relative;"></div>
            </div>
              {{-- ---------------- [ Search Tab ] ---------------- --}}
@@ -81,7 +81,7 @@
         {{-- Messaging area --}}
         <div class="m-body messages-container app-scroll">
             <div class="messages">
-                <p class="message-hint center-el"><span>Please select a chat to start messaging</span></p>
+                <p class="message-hint center-el"><span>Tolong, pilih salah satu kontak admin</span></p>
             </div>
             {{-- Typing indicator --}}
             <div class="typing-indicator">
