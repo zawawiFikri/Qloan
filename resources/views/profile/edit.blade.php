@@ -3,8 +3,12 @@
     <div class="flex items-center">
         @if(Auth()->User()->roles == "customer")
         <a href="/dashboard" class="text-gray-500 hover:text-gray-700">
-        @else
-        <a href="/dashAdmin" class="text-gray-500 hover:text-gray-700">
+        @endif
+        @if(Auth()->User()->roles == "admin")
+        <a href="/dashboard/admin" class="text-gray-500 hover:text-gray-700">
+        @endif
+        @if(Auth()->User()->roles == "karyawan")
+        <a href="/dashboard/karyawan" class="text-gray-500 hover:text-gray-700">
         @endif
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block align-middle mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>

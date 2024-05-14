@@ -57,11 +57,11 @@ class RegisteredUserController extends Controller
             ]);
             ChFavorite::create([
                 'user_id' => $user->id,
-                'favorite_id' => 1,
+                'favorite_id' => 3,
             ]);
             ChFavorite::create([
                 'user_id' => $user->id,
-                'favorite_id' => 2,
+                'favorite_id' => 4,
             ]);
         }
 

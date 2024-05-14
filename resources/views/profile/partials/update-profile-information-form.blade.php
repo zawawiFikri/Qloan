@@ -55,9 +55,9 @@
         </div>
 
         <div>
-            <x-input-label for="NoTlp" :value="__('Nomer HP')" />
-            <x-text-input id="NoTlp" name="NoTlp" type="text" class="mt-1 block w-full" :value="old('NoTlp', $customer->NoTlp)" required autofocus autocomplete="NoTlp" />
-            <x-input-error class="mt-2" :messages="$errors->get('NoTlp')" />
+            <x-input-label for="no_tlp" :value="__('Nomer Telepon (WA)')" />
+            <x-text-input id="no_tlp" name="no_tlp" type="text" class="mt-1 block w-full" :value="old('no_tlp', $customer->no_tlp)" required autofocus autocomplete="no_tlp" />
+            <x-input-error class="mt-2" :messages="$errors->get('no_tlp')" />
         </div>
         @endif
 
@@ -66,6 +66,14 @@
             <x-input-label for="role_admin" :value="__('Role admin')" />
             <x-text-input id="role_admin" name="role_admin" type="text" class="mt-1 block w-full" :value="old('role_admin', $admin->role_admin)" required autofocus autocomplete="role_admin" />
             <x-input-error class="mt-2" :messages="$errors->get('role_admin')" />
+        </div>
+        @endif
+
+        @if(Auth()->User()->roles == "karyawan")
+        <div>
+            <x-input-label for="no_tlp" :value="__('Nomer Telepon (WA)')" />
+            <x-text-input id="no_tlp" name="no_tlp" type="text" class="mt-1 block w-full" :value="old('no_tlp', $karyawan->no_tlp)" required autofocus autocomplete="no_tlp" />
+            <x-input-error class="mt-2" :messages="$errors->get('no_tlp')" />
         </div>
         @endif
 

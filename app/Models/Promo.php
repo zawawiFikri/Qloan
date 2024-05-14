@@ -4,26 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\Pesanan;
 
-class Customer extends Model
+class Promo extends Model
 {
     use HasFactory;
-    protected $table = 'customer';
+    protected $table = 'promo';
     protected $fillable = [
-        'id',
-        'user_id',
-        'alamat',
-        'no_tlp',
+        'nama_promo',
+        'desc_promo',
+        'diskon',
+        'tgl_mulai',
+        'tgl_akhir',
+        'status',
     ];
 
-    public function user():BelongsTo
-    {
-        return $this->BelongsTo(User::class, 'user_id');
-    }
     public function pesanan():HasMany
     {
         return $this->hasMany(Pesanan::class);

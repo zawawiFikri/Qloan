@@ -67,7 +67,10 @@
                         <a href="#products" class="nav__link">Layanan</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#contact" class="nav__link">Pesanan</a>
+                        <a href="#form_pesanan" class="nav__link">Pesanan</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#riwayat_pesanan" class="nav__link">Riwayat</a>
                     </li>
                     @endif
                     @if(auth()->user() && auth()->user()->hasRole('customer'))

@@ -7,7 +7,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><i class="fas fa-home" style="padding-right: 5px;"></i><a
-                            href="/dashAdmin" style="font-size: 14px;">Home</a></li>
+                            href="/dashboard/admin" style="font-size: 14px;">Home</a></li>
                     <li class="breadcrumb-item"><a href="/users" style="font-size: 14px;">Data User</a>
                     </li>
                 </ol>

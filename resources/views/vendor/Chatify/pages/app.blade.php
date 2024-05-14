@@ -65,7 +65,7 @@
                     @if(auth()->user()->roles == "customer")
                     <a href="/dashboard"><i class="fas fa-home"></i></a>
                     @else
-                    <a href="/dashAdmin"><i class="fas fa-home"></i></a>
+                    <a href="/dashboard/admin"><i class="fas fa-home"></i></a>
                     @endif
                     <a href="#" class="show-infoSide"><i class="fas fa-info-circle"></i></a>
                 </nav>

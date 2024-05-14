@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Karyawan;
 use App\Models\Customer;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
@@ -21,8 +21,9 @@ class ProfileController extends Controller
     {
         $user = auth()->user();
         $customer = $user->customer;
+        $karyawan = $user->karyawan;
         $admin = $user->admin;
-        return view('profile.edit', compact('user', 'customer', 'admin'));
+        return view('profile.edit', compact('user', 'customer', 'admin','karyawan'));
     }
 
     /**
@@ -42,7 +43,7 @@ class ProfileController extends Controller
         if(auth()->user()->customer){
         $cus = auth()->user()->customer ?? new Customer();
         $cus->alamat = $request->alamat;
-        $cus->NoTlp = $request->NoTlp;
+        $cus->no_tlp = $request->no_tlp;
         $cus->save();
         $user->customer()->save($cus);
         }
@@ -54,6 +55,14 @@ class ProfileController extends Controller
 
         $user->admin()->save($admin);
         }
+
+        if(auth()->user()->karyawan){
+            $karyawan = auth()->user()->karyawan ?? new Karyawan();
+            $karyawan->no_tlp = $request->no_tlp;
+            $karyawan->save();
+    
+            $user->karyawan()->save($karyawan);
+            }
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
