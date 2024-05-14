@@ -132,7 +132,9 @@
                         <span class="product__price">Mulai dari 6k/2kg</span>
 
                         <button class="button--flex product__button">
-                            <i class="ri-shopping-bag-line"></i>
+                            <a href="#form_pesanan">
+                                <i class="ri-shopping-bag-line"></i>
+                            </a>
                         </button>
                     </article>
 
@@ -145,7 +147,9 @@
                         <span class="product__price">Mulai dari 7k/2kg</span>
 
                         <button class="button--flex product__button">
-                            <i class="ri-shopping-bag-line"></i>
+                            <a href="#form_pesanan">
+                                <i class="ri-shopping-bag-line"></i>
+                            </a>
                         </button>
                     </article>
 
@@ -158,7 +162,9 @@
                         <span class="product__price">Mulai dari 6k/2kg</span>
 
                         <button class="button--flex product__button">
-                            <i class="ri-shopping-bag-line"></i>
+                            <a href="#form_pesanan">
+                                <i class="ri-shopping-bag-line"></i>
+                            </a>
                         </button>
                     </article>
 
@@ -167,11 +173,13 @@
 
                         <img src="assets/img/bayi.png" alt="" class="product__img">
 
-                        <h3 class="product__title">Cuci Baby Gear</h3>
-                        <span class="product__price">$5.99</span>
+                        <h3 class="product__title">Cuci Kereta Bayi</h3>
+                        <span class="product__price">Mulai dari 70k</span>
 
                         <button class="button--flex product__button">
-                            <i class="ri-shopping-bag-line"></i>
+                            <a href="#form_pesanan">
+                                <i class="ri-shopping-bag-line"></i>
+                            </a>
                         </button>
                     </article>
 
@@ -184,7 +192,9 @@
                         <span class="product__price">Mulai dari 25k</span>
 
                         <button class="button--flex product__button">
-                            <i class="ri-shopping-bag-line"></i>
+                            <a href="#form_pesanan">
+                                <i class="ri-shopping-bag-line"></i>
+                            </a>
                         </button>
                     </article>
 
@@ -197,7 +207,9 @@
                         <span class="product__price">Mulai dari 5k</span>
 
                         <button class="button--flex product__button">
-                            <i class="ri-shopping-bag-line"></i>
+                            <a href="#form_pesanan">
+                                <i class="ri-shopping-bag-line"></i>
+                            </a>
                         </button>
                     </article>
 
@@ -210,7 +222,9 @@
                         <span class="product__price">Mulai dari 15k</span>
 
                         <button class="button--flex product__button">
-                            <i class="ri-shopping-bag-line"></i>
+                            <a href="#form_pesanan">
+                                <i class="ri-shopping-bag-line"></i>
+                            </a>
                         </button>
                     </article>
 
@@ -223,7 +237,9 @@
                         <span class="product__price">Mulai dari 20k</span>
 
                         <button class="button--flex product__button">
-                            <i class="ri-shopping-bag-line"></i>
+                            <a href="#form_pesanan">
+                                <i class="ri-shopping-bag-line"></i>
+                            </a>
                         </button>
                     </article>
 
@@ -236,9 +252,146 @@
                         <span class="product__price">Mulai dari 25k</span>
 
                         <button class="button--flex product__button">
-                            <i class="ri-shopping-bag-line"></i>
+                            <a href="#form_pesanan">
+                                <i class="ri-shopping-bag-line"></i>
+                            </a>
                         </button>
                     </article>
+                </div>
+            </section>
+
+            <section class="contact section container" id="form_pesanan">                
+                <div class="contact__container grid">
+                    <div class="contact__box">
+                        <img src="assets/img/Price_list.jpg" alt="" width="80%" height="80%">
+                    </div>
+
+                    <form action="{{ route("create_pesanan") }}" method="post" class="contact__form" enctype="multipart/form-data">
+                    @csrf
+                        <div class="Contact__head" style="margin-bottom:30px;">
+                            <h4>Form Pesanan</h4>
+                        </div>
+                        <div class="contact__inputs">
+                            <input type="hidden" name="customer_id" id="customer_id" value="{{ auth()->user()->customer->id }}">
+                            <div class="contact__content">
+                                <select class="contact__input" id="kategori_id" name="kategori_id">
+                                    <option value="" disabled selected hidden>Pilih Kategori</option>
+                                    @foreach($dataKategori as $item)
+                                        <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
+                                    @endforeach
+                                </select>
+                                <label for="kategori_id" class="contact__label">Kategori</label>
+                            </div>
+
+                            <div class="contact__content">
+                                <select class="contact__input" id="layanan_id" name="layanan_id">
+                                    <option value="" disabled selected hidden>Pilih Layanan</option>
+                                </select>
+                                <label for="layanan_id" class="contact__label">Layanan</label>
+                            </div>
+
+                            <div class="contact__content">
+                                <select class="contact__input" id="promo_id" name="promo_id">
+                                    <option value="" disabled selected hidden>Pilih Promo</option>
+                                    @foreach($dataPromo as $item)
+                                        <option value="{{ $item->id }}">{{ $item->nama_promo }}</option>
+                                    @endforeach
+                                </select>
+                                <label for="promo_id" class="contact__label">Promo</label>
+                            </div>
+
+                            <div class="contact__content">
+                                <select class="contact__input" id="jenis_pembayaran" name="jenis_pembayaran">
+                                    <option value="" disabled selected hidden>Pilih Jenis Pembayaran</option>
+                                    <option value="Tunai">Tunai</option>
+                                    <option value="Link Aja">Link Aja</option>
+                                    <option value="OVO">OVO</option>
+                                    <option value="Shopee Pay">Shopee Pay</option>
+                                    <option value="Qris">Qris</option>
+                                    <option value="Gopay">Gopay</option>
+                                    <option value="Dana">Dana</option>
+                                </select>
+                                <label for="jenis_pembayaran" class="contact__label">Jenis Pembayaran</label>
+                            </div>
+
+                            <div class="contact__content">
+                                <input type="text" id="alamat" name="alamat" placeholder=" " class="contact__input">
+                                <label for="alamat" class="contact__label">Alamat</label>
+                            </div>
+
+                            <div class="contact__content contact__area">
+                                <textarea name="catatan" id="catatan" placeholder=" " class="contact__input"></textarea>                              
+                                <label for="catatan" class="contact__label">Catatan</label>
+                            </div>
+                        </div>
+
+                        <button class="button button--flex" type="submit">
+                            Buat Pesanan
+                            <i class="ri-arrow-right-up-line button__icon"></i>
+                        </button>
+                    </form>
+
+                </div>
+            </section>
+
+             <!--==================== RIWAYAT ====================-->
+             <section class="steps section container" id=riwayat_pesanan>
+                <div class="steps__bg">
+                    <h2 class="section__title-center steps__title">
+                        Riwayat Pemesanan
+                    </h2>
+                    
+                    <div class="card-body">
+                        <table class="table table-bordered text-center" id="tabel-pesanan">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col" style="width: 5%; font-size: 12px;">No.</th>
+                                    <th scope="col" style="width: 12%; font-size: 12px;">Kategori</th>
+                                    <th scope="col" style="width: 12%; font-size: 12px;">Layanan</th>
+                                    <th scope="col" style="width: 12%; font-size: 12px;">Promo</th>
+                                    <th scope="col" style="width: 12%; font-size: 12px;">Tgl Pesanan</th>
+                                    <th scope="col" style="width: 12%; font-size: 12px;">Alamat</th>
+                                    <th scope="col" style="width: 12%; font-size: 12px;">Catatan</th>
+                                    <th scope="col" style="width: 12%; font-size: 12px;">Bobot</th>
+                                    <th scope="col" style="width: 12%; font-size: 12px;">Total</th>
+                                    <th scope="col" style="width: 12%; font-size: 12px;">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                            @foreach ($dataPesanan as $item)
+                            <tr>
+                                <td style="font-size:12px; color: white;">{{ $loop->iteration }}</td>
+                                <td style="font-size:12px; color: white;">{{ $item->kategori ? $item->kategori->nama_kategori : 'kosong' }}</td>
+                                <td style="font-size:12px; color: white;">{{ $item->layanan ? $item->layanan->nama_layanan : 'kosong' }}</td>
+                                <td style="font-size:12px; color: white;">{{ $item->promo ? $item->promo->nama_promo : 'kosong' }}</td>
+                                <td style="font-size:12px; color: white;">{{ $item->tgl_pesanan ?: 'kosong' }}</td>
+                                <td style="font-size:12px; color: white;">{{ $item->alamat ?: 'kosong' }}</td>
+                                <td style="font-size:12px; color: white;">{{ $item->catatan ?: 'kosong' }}</td>
+                                @if($item->bobot && $item->kategori->id == 4)
+                                <td style="font-size:12px; color: white;">{{ $item->bobot.' Barang'}}</td>
+                                @endif
+                                @if($item->bobot && in_array($item->kategori->id, [1, 2, 3]))
+                                <td style="font-size:12px; color: white;">{{ $item->bobot.' Kg'}}</td>
+                                @endif
+                                @if(!$item->bobot)
+                                <td style="font-size:12px; color: white;">{{ $item->bobot = 'kosong' }}</td>
+                                @endif
+                                @if($item->total_pembayaran)
+                                <td style="font-size:12px; color: white;">{{ 'Rp.'.$item->total_pembayaran }}</td>
+                                @else
+                                <td style="font-size:12px; color: white;">{{ $item->total_pembayaran = 'kosong' }}</td>
+                                @endif
+                                <td style="font-size:12px; color: white;">{{ $item->status_pesanan ?: 'kosong' }}</td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+
+                        <div class="pagination-container">
+                        </div>
+
+                    </div>
+                   
                 </div>
             </section>
         </main>
@@ -303,58 +456,76 @@
             <p class="footer__copy">&#169; Qlos-laundry. All rigths reserved</p>
         </footer>
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
-    // Variabel untuk menandai apakah tombol "Next" sudah ditekan
-            let isNextButtonClicked = false;
+                document.addEventListener("DOMContentLoaded", function() {
+            // Variabel untuk menandai apakah tombol "Next" sudah ditekan
+                    let isNextButtonClicked = false;
 
-            // Mengambil elemen-elemen card
-            const card01 = document.querySelector(".steps__card:nth-child(1)");
-            const card02 = document.querySelector(".steps__card:nth-child(2)");
-            const card03 = document.querySelector(".steps__card:nth-child(3)");
-            const card04 = document.querySelector(".steps__card_s:nth-child(4)");
-            const card05 = document.querySelector(".steps__card_s:nth-child(5)");
-            const card06 = document.querySelector(".steps__card_s:nth-child(6)");
+                    // Mengambil elemen-elemen card
+                    const card01 = document.querySelector(".steps__card:nth-child(1)");
+                    const card02 = document.querySelector(".steps__card:nth-child(2)");
+                    const card03 = document.querySelector(".steps__card:nth-child(3)");
+                    const card04 = document.querySelector(".steps__card_s:nth-child(4)");
+                    const card05 = document.querySelector(".steps__card_s:nth-child(5)");
+                    const card06 = document.querySelector(".steps__card_s:nth-child(6)");
 
-            // Menyembunyikan card 4, 5, dan 6 pada awalnya
-            if(!isNextButtonClicked){
-            card04.style.display = "none";
-            card05.style.display = "none";
-            card06.style.display = "none";
-            }
+                    // Menyembunyikan card 4, 5, dan 6 pada awalnya
+                    if(!isNextButtonClicked){
+                    card04.style.display = "none";
+                    card05.style.display = "none";
+                    card06.style.display = "none";
+                    }
 
-            // Mendapatkan tombol "Next" dan "Back"
-            const nextButton = document.querySelector(".steps__nav--next");
-            const prevButton = document.querySelector(".steps__nav--prev");
+                    // Mendapatkan tombol "Next" dan "Back"
+                    const nextButton = document.querySelector(".steps__nav--next");
+                    const prevButton = document.querySelector(".steps__nav--prev");
 
-            // Event listener untuk tombol "Next"
-            nextButton.addEventListener("click", function() {
-                // Memperlihatkan card 4, 5, dan 6 hanya jika tombol "Next" belum pernah ditekan sebelumnya
-                if (!isNextButtonClicked) {
-                    card04.style.display = "block";
-                    card05.style.display = "block";
-                    card06.style.display = "block";
-                    card01.style.display = "none";
-                    card02.style.display = "none";
-                    card03.style.display = "none";
-                    // Mengubah status variabel
-                    isNextButtonClicked = true;
-                }
-            });
+                    // Event listener untuk tombol "Next"
+                    nextButton.addEventListener("click", function() {
+                        // Memperlihatkan card 4, 5, dan 6 hanya jika tombol "Next" belum pernah ditekan sebelumnya
+                        if (!isNextButtonClicked) {
+                            card04.style.display = "block";
+                            card05.style.display = "block";
+                            card06.style.display = "block";
+                            card01.style.display = "none";
+                            card02.style.display = "none";
+                            card03.style.display = "none";
+                            // Mengubah status variabel
+                            isNextButtonClicked = true;
+                        }
+                    });
 
-            // Event listener untuk tombol "Back"
-            prevButton.addEventListener("click", function() {
-                // Mengembalikan tampilan card sesuai dengan kondisi awal
-                card04.style.display = "none";
-                card05.style.display = "none";
-                card06.style.display = "none";
-                card01.style.display = "block";
-                card02.style.display = "block";
-                card03.style.display = "block";
-                // Mengubah status variabel
-                isNextButtonClicked = false;
-            });
-        });
+                    // Event listener untuk tombol "Back"
+                    prevButton.addEventListener("click", function() {
+                        // Mengembalikan tampilan card sesuai dengan kondisi awal
+                        card04.style.display = "none";
+                        card05.style.display = "none";
+                        card06.style.display = "none";
+                        card01.style.display = "block";
+                        card02.style.display = "block";
+                        card03.style.display = "block";
+                        // Mengubah status variabel
+                        isNextButtonClicked = false;
+                    });
 
+                    const kategoriDropdown = document.querySelector('.contact__input[name="kategori_id"]');
+                    const layananDropdown = document.querySelector('.contact__input[name="layanan_id"]');
+
+                    kategoriDropdown.addEventListener('change', function() {
+                        const selectedKategori = this.value;
+                        $.ajax({
+                            url: '{{ route("get_layanan") }}',
+                            type: 'POST',
+                            data: { kategori_id: selectedKategori, _token: '{{csrf_token()}}' },
+                            success: function(response) {
+                                layananDropdown.innerHTML = '';
+                                const options = response.map(function(item) {
+                                    return '<option value="' + item.id + '">' + item.nama_layanan + '</option>';
+                                });
+                                layananDropdown.innerHTML = options.join(''); 
+                            }
+                        });
+                    });
+                });
         </script>
 @endsection
 

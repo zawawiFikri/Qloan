@@ -14,7 +14,7 @@
                         <p class="home__description">
                         Laundry terbaik didaeah Kota Blitar, dengan pelayanan 1 mesin 1 customer
                         </p>
-                        <a href="#about" class="button button--flex">
+                        <a href="/login" class="button button--flex">
                             Pesan Sekarang <i class="ri-arrow-right-down-line button__icon"></i>
                         </a>
                     </div>
@@ -135,7 +135,9 @@
                         <span class="product__price">Mulai dari 6k/2kg</span>
 
                         <button class="button--flex product__button">
+                        <a href=/login>    
                             <i class="ri-shopping-bag-line"></i>
+                        </a>    
                         </button>
                     </article>
 
@@ -148,7 +150,9 @@
                         <span class="product__price">Mulai dari 7k/2kg</span>
 
                         <button class="button--flex product__button">
+                        <a href=/login>    
                             <i class="ri-shopping-bag-line"></i>
+                        </a>    
                         </button>
                     </article>
 
@@ -161,7 +165,9 @@
                         <span class="product__price">Mulai dari 6k/2kg</span>
 
                         <button class="button--flex product__button">
+                        <a href=/login>    
                             <i class="ri-shopping-bag-line"></i>
+                        </a>    
                         </button>
                     </article>
 
@@ -170,11 +176,13 @@
 
                         <img src="assets/img/bayi.png" alt="" class="product__img">
 
-                        <h3 class="product__title">Cuci Baby Gear</h3>
-                        <span class="product__price">$5.99</span>
+                        <h3 class="product__title">Cuci Kereta Bayi</h3>
+                        <span class="product__price">Mulai dari 70k</span>
 
                         <button class="button--flex product__button">
+                        <a href=/login>    
                             <i class="ri-shopping-bag-line"></i>
+                        </a>    
                         </button>
                     </article>
 
@@ -187,7 +195,9 @@
                         <span class="product__price">Mulai dari 25k</span>
 
                         <button class="button--flex product__button">
+                        <a href=/login>    
                             <i class="ri-shopping-bag-line"></i>
+                        </a>    
                         </button>
                     </article>
 
@@ -200,7 +210,9 @@
                         <span class="product__price">Mulai dari 5k</span>
 
                         <button class="button--flex product__button">
+                        <a href=/login>    
                             <i class="ri-shopping-bag-line"></i>
+                        </a>    
                         </button>
                     </article>
 
@@ -213,7 +225,9 @@
                         <span class="product__price">Mulai dari 15k</span>
 
                         <button class="button--flex product__button">
+                        <a href=/login>    
                             <i class="ri-shopping-bag-line"></i>
+                        </a>    
                         </button>
                     </article>
 
@@ -226,7 +240,9 @@
                         <span class="product__price">Mulai dari 20k</span>
 
                         <button class="button--flex product__button">
+                        <a href=/login>    
                             <i class="ri-shopping-bag-line"></i>
+                        </a>    
                         </button>
                     </article>
 
@@ -239,7 +255,9 @@
                         <span class="product__price">Mulai dari 25k</span>
 
                         <button class="button--flex product__button">
+                        <a href=/login>    
                             <i class="ri-shopping-bag-line"></i>
+                        </a>    
                         </button>
                     </article>
                 </div>

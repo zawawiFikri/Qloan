@@ -20,7 +20,7 @@ class KaryawanMiddleware
             if(Auth::user()->roles == "karyawan") {
                 return $next($request);
             }else{
-                return redirect('/dashboard')->with('message', 'access denied');
+                return redirect('/dashboard/karyawan')->with('message', 'access denied');
             }
         }else{
             return redirect('/login')->with('message', 'Login sebagai karyawan untuk melakukan access');

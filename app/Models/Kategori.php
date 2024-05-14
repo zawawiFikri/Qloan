@@ -4,28 +4,26 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\Pesanan;
+use App\Models\Layanan;
 
-class Customer extends Model
+class Kategori extends Model
 {
     use HasFactory;
-    protected $table = 'customer';
+
+    protected $table = 'kategori';
     protected $fillable = [
-        'id',
-        'user_id',
-        'alamat',
-        'no_tlp',
+        'nama_kategori',
     ];
 
-    public function user():BelongsTo
-    {
-        return $this->BelongsTo(User::class, 'user_id');
-    }
     public function pesanan():HasMany
     {
         return $this->hasMany(Pesanan::class);
+    }
+
+    public function layanan():HasMany
+    {
+        return $this->hasMany(Layanan::class);
     }
 }

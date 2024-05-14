@@ -6,8 +6,8 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                @if(Request::is('dashAdmin*'))
-                    <a href="{{ route('dashAdmin') }}">
+                @if(Request::is('dashboard/admin*'))
+                    <a href="{{ route('dashboard/admin') }}">
                 @endif
                 @if(Request::is('dashboard*'))
                     <a href="{{ route('dashboard') }}">
@@ -18,7 +18,7 @@
 
                 @if(auth()->user() && auth()->user()->hasRole('admin'))
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashAdmin')" :active="request()->routeIs('dashAdmin')">
+                    <x-nav-link :href="route('dashboard/admin')" :active="request()->routeIs('dashboard/admin')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>

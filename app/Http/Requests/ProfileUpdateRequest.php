@@ -22,7 +22,7 @@ class ProfileUpdateRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
             'alamat' => ['required', 'string', 'max:255'],
-            'NoTlp' => ['required', 'numeric'],
+            'no_tlp' => ['required', 'numeric'],
         ];
         }
 
@@ -32,6 +32,14 @@ class ProfileUpdateRequest extends FormRequest
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
             'role_admin' => ['required', 'string'],
         ];
+        }
+
+        if(auth()->user()->customer){
+            return [
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
+                'no_tlp' => ['required', 'numeric'],
+            ];
         }
     }
 }
