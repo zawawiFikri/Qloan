@@ -33,9 +33,9 @@ class AuthenticatedSessionController extends Controller
         if ($user->roles == "customer") {
             return redirect('dashboard');
         } elseif ($user->roles == "admin") {
-            return redirect('dashAdmin');
+            return redirect('dashboard/admin');
         } elseif ($user->roles == "karyawan") {
-            return redirect('dashKaryawan');
+            return redirect('dashboard/karyawan');
         }
         return back()->withErrors([
             'message' => 'Email atau password tidak terdaftar',

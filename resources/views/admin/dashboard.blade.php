@@ -28,13 +28,16 @@
         </div>
         <div class="card" style="margin-top: 5px;">
             <div class="card-header">
-                <h5>INFO</h5>
+                <h5>Pengumuman Terbaru</h5>
             </div>
-            <div class="card-body">
-                <h1>ADMIN SUDAH DATANG</h1>
-                
+            <!-- <div class="card-body">
+                <h3>Pengumuman Jadwal Upload Serkom</h3>
+                <a>Berikut adalah Jadwal Upload Sertifikat Kompetensi</a>
+                <ul style="list-style: circle; margin-left: 20px;">
+                    <li>Batch 1 : 15 – 20 November 2023</li>
+                    <li>Batch 2 : 2 – 15 Desember 2023</li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

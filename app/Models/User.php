@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Customer;
 use App\Models\Admin;
+use App\Models\Karyawan;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Authenticatable
@@ -60,5 +61,10 @@ class User extends Authenticatable
     public function admin(): HasOne
     {
         return $this->hasOne(Admin::class, 'user_id');
+    }
+
+    public function karyawan(): HasOne
+    {
+        return $this->hasOne(Karyawan::class, 'user_id');
     }
 }

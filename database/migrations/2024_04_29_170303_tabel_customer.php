@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('alamat')->nullable();
-            $table->string('NoTlp')->nullable();
+            $table->string('no_tlp')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });

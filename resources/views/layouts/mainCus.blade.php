@@ -44,10 +44,11 @@
                 <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="#home" class="nav__link active-link">Home</a>
+                        <a href="#home" class="nav__link active-link">Beranda</a>
                     </li>
+                    @if(!auth()->user())
                     <li class="nav__item">
-                        <a href="#about" class="nav__link">About</a>
+                        <a href="#about" class="nav__link">Tentang Kami</a>
                     </li>
                     <li class="nav__item">
                         <a href="#steps" class="nav__link">Promo</a>
@@ -56,11 +57,22 @@
                         <a href="#products" class="nav__link">Layanan</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#faqs" class="nav__link">FAQs</a>
+                        <a href="#contact" class="nav__link">Kontak kami</a>
+                    </li>
+                    @else
+                    <li class="nav__item">
+                        <a href="#steps" class="nav__link">Arahan</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#contact" class="nav__link">Contact Us</a>
+                        <a href="#products" class="nav__link">Layanan</a>
                     </li>
+                    <li class="nav__item">
+                        <a href="#form_pesanan" class="nav__link">Pesanan</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#riwayat_pesanan" class="nav__link">Riwayat</a>
+                    </li>
+                    @endif
                     @if(auth()->user() && auth()->user()->hasRole('customer'))
                         <li class="nav__item dropdown">
                             <a href="#" class="nav__link" data-bs-toggle="dropdown">

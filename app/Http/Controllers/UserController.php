@@ -143,21 +143,7 @@ class UserController extends Controller
             Cache::flush();
             return redirect('/users')->with('success', 'Data berhasil dihapus');
         }
-
-        // if (
-        //     $user->admin->role_admint()->exists()
-        // ) {
-        //     return redirect('/users')->with('warning', 'Data memiliki relasi!');
-        // }
-
-        // if (
-        //     $user->customer->alamat()->exists() ||
-        //     $user->customer->NoTlp()->exists()
-        // ) {
-        //     return redirect('/users')->with('warning', 'Data memiliki relasi!');
-        // }
-    
-        // $user->customer->request()->forceDelete();
+        
         if($user->customer){
             $user->customer()->delete();
             $user->delete();
