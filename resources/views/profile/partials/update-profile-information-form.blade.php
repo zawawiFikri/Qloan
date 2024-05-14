@@ -47,7 +47,7 @@
             @endif
         </div>
 
-        @if(Auth()->User()->roles == "custoemer")
+        @if(Auth()->User()->roles == "customer")
         <div>
             <x-input-label for="alamat" :value="__('Alamat')" />
             <x-text-input id="alamat" name="alamat" type="text" class="mt-1 block w-full" :value="old('alamat', $customer->alamat)" required autofocus autocomplete="alamat" />

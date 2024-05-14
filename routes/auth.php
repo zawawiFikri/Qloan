@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
     Route::get('/Qlos-laundry', function () {
-        return view('customer.home');
+        return view('home');
     });
 
     Route::get('register', [RegisteredUserController::class, 'create'])

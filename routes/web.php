@@ -29,7 +29,7 @@ Route::middleware('isCustomer')->group(function () {
     Route::get('/dashboard', function () {
         return view('customer.home');
     })->name('dashboard');
-    Route::get('/chatify/2', [MessagesController::class, 'index'])->name('user');
+    Route::get('/chatify/1', [MessagesController::class, 'index'])->name('user');
     Route::get('/layanan', function () {
         return view('customer.layanan');
     })->name('layanan');

@@ -15,12 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(4)->create()->each(function ($user) {
-            if ($user->roles == "customer") {
-                Customer::create([
-                    'user_id' => $user->id,
-                ]);
-            }
+        User::factory(2)->create()->each(function ($user) {
             if($user->roles == "admin"){
                 Admin::create([
                     'user_id' => $user->id,
