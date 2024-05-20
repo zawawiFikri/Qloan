@@ -31,6 +31,7 @@ class Pesanan extends Model
         'total_pembayaran',
         'jenis_pembayaran',
         'status_pesanan',
+        'parfum',
         'nota',
     ];
 

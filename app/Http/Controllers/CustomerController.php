@@ -21,8 +21,8 @@ class CustomerController extends Controller
 {
     public function dataCustomer()
     {
-        $dataKategori = Kategori::all();
-        $dataPromo = Promo::all();
+        $dataKategori = Kategori::where('status', 'aktif')->get();
+        $dataPromo = Promo::where('status', 'aktif')->get();
         $user = auth()->user()->customer;
         $dataPesanan = $user->pesanan;
         return view('customer.home', [
@@ -35,7 +35,9 @@ class CustomerController extends Controller
     public function get_layanan(Request $request)
     {
         $kategoriId = $request->input('kategori_id');
-        $layanan = Layanan::where('kategori_id', $kategoriId)->get();
+        $layanan = Layanan::where('kategori_id', $kategoriId)
+                          ->where('status', 'aktif')
+                          ->get();
         return response()->json($layanan);
     }
 
@@ -66,9 +68,10 @@ class CustomerController extends Controller
         $data->customer_id = $request->customer_id;
         $data->jenis_pembayaran = $request->jenis_pembayaran;
         $data->alamat = $request->alamat;
+        $data->parfum = $request->parfum;
         $data->catatan = $request->catatan;
 
         $data->save();
-        return redirect('/dashboard#form_pesanan')->with('success', 'Pesanan telah dikirim');
+        return redirect('/dashboard#form_pesanan')->with('success1', 'Pesanan telah dikirim');
     }
 }

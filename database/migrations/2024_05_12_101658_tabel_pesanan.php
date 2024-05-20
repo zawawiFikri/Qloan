@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('jenis_pembayaran')->nullable();
             $table->enum('status_pesanan', ['Menunggu konfirmasi', 'Diterima', 
             'Diproses', 'Pengiriman', 'Selesai'])->default('Menunggu konfirmasi');
+            $table->string('parfum')->nullable();
             $table->string('nota')->nullable();
             $table->timestamps();
         });

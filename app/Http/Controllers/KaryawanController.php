@@ -9,7 +9,8 @@ class KaryawanController extends Controller
 {
     public function dataKaryawan()
     {
-        return view('karyawan.dashboard');
+        $jumlahPesanan = Pesanan::count();
+        return view('karyawan.dashboard', compact('jumlahPesanan'));
     }
     public function pesanan()
     {
@@ -37,12 +38,14 @@ class KaryawanController extends Controller
             $totalawal = ($data->layanan->harga * $request->bobot);
             $diskon = $totalawal * ($data->promo->diskon/100);
             $data->total_pembayaran = $totalawal-$diskon;
+            $data->parfum = $request->parfum;
             $data->karyawan_id = auth()->user()->karyawan->id;
         }else{
             $data->bobot = $request->bobot;
             $data->status_pesanan = $request->status_pesanan;
             $totalawal = ($data->layanan->harga * $request->bobot);
             $data->total_pembayaran = $totalawal;
+            $data->parfum = $request->parfum;
             $data->karyawan_id = auth()->user()->karyawan->id;
         }
         $data->save();

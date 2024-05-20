@@ -24,20 +24,36 @@
         </div>
 
         <div class="page-sub-header">
-            <h3 class="page-title">Selamat Datang</h3>
+            <h3 class="page-title mb-3">Selamat Datang</h3>
         </div>
+
+        <div class="card border-primary mb-3" style="max-width: 13rem;">
+            <div class="card-body text-primary" style="padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; flex-direction: column;">
+                    <h3 class="card-title">{{ $jumlahPesanan }}</h3>
+                    <p class="card-text">Data Pesanan</p>
+                </div>
+                <div class="icon" style="font-size: 3em; margin-right:20px">
+                    <i class="fas fa-cart-plus"></i>
+                </div>
+            </div>
+            <div class="card-footer bg-transparent border-primary" style="padding: 10px;">
+                <a href="/pesanan">Kelola Pesanan <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
         <div class="card" style="margin-top: 5px;">
             <div class="card-header">
                 <h5>Pengumuman Terbaru</h5>
             </div>
-            <!-- <div class="card-body">
-                <h3>Pengumuman Jadwal Upload Serkom</h3>
-                <a>Berikut adalah Jadwal Upload Sertifikat Kompetensi</a>
+            <div class="card-body">
+                <h3>Pengumuman Jadwal Shift Karyawan</h3>
+                <a>Berikut adalah Jadwal Shift Karyawan</a>
                 <ul style="list-style: circle; margin-left: 20px;">
-                    <li>Batch 1 : 15 – 20 November 2023</li>
-                    <li>Batch 2 : 2 – 15 Desember 2023</li>
+                    <li>Sesi 1 : 08:00 - 12:00</li>
+                    <li>Sesi 2 : 13:00 - 17:00</li>
                 </ul>
-            </div> -->
+            </div>
         </div>
     </div>
 </div>

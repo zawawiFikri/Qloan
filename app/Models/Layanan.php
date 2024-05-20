@@ -20,6 +20,7 @@ class Layanan extends Model
         'desc_layanan',
         'harga',
         'durasi',
+        'status',
     ];
 
     public function pesanan():HasMany

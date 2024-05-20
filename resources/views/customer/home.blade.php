@@ -15,7 +15,7 @@
                         Anda ingin melakukan request jenis pesanan tertentu yang tidak terdaftar di menu layanan?. 
                         Silahkan gunakan fitur chat yang telah kami sediakan khusus untuk anda, Terimah kasih.
                         </p>
-                        <a href="{{ route('user') }}" class="button button--flex">
+                        <a href="/chatify/3" class="button button--flex">
                             Chat <i class="ri-arrow-right-down-line button__icon"></i>
                         </a>
                     </div>
@@ -259,8 +259,9 @@
                     </article>
                 </div>
             </section>
-
-            <section class="contact section container" id="form_pesanan">                
+            
+            <section class="contact section container" id="form_pesanan">
+            @include('layouts.alert-flash-message')                
                 <div class="contact__container grid">
                     <div class="contact__box">
                         <img src="assets/img/Price_list.jpg" alt="" width="80%" height="80%">
@@ -273,8 +274,9 @@
                         </div>
                         <div class="contact__inputs">
                             <input type="hidden" name="customer_id" id="customer_id" value="{{ auth()->user()->customer->id }}">
+                            <input type="hidden" name="parfum" id="parfum" value="{{ "Pakai" }}">
                             <div class="contact__content">
-                                <select class="contact__input" id="kategori_id" name="kategori_id">
+                                <select class="contact__input" id="kategori_id" name="kategori_id" required>
                                     <option value="" disabled selected hidden>Pilih Kategori</option>
                                     @foreach($dataKategori as $item)
                                         <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
@@ -284,7 +286,7 @@
                             </div>
 
                             <div class="contact__content">
-                                <select class="contact__input" id="layanan_id" name="layanan_id">
+                                <select class="contact__input" id="layanan_id" name="layanan_id" required>
                                     <option value="" disabled selected hidden>Pilih Layanan</option>
                                 </select>
                                 <label for="layanan_id" class="contact__label">Layanan</label>
@@ -301,7 +303,7 @@
                             </div>
 
                             <div class="contact__content">
-                                <select class="contact__input" id="jenis_pembayaran" name="jenis_pembayaran">
+                                <select class="contact__input" id="jenis_pembayaran" name="jenis_pembayaran" required>
                                     <option value="" disabled selected hidden>Pilih Jenis Pembayaran</option>
                                     <option value="Tunai">Tunai</option>
                                     <option value="Link Aja">Link Aja</option>
@@ -315,7 +317,7 @@
                             </div>
 
                             <div class="contact__content">
-                                <input type="text" id="alamat" name="alamat" placeholder=" " class="contact__input">
+                                <input type="text" id="alamat" name="alamat" placeholder=" " class="contact__input" required>
                                 <label for="alamat" class="contact__label">Alamat</label>
                             </div>
 
