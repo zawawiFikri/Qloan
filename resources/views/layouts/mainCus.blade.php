@@ -90,7 +90,7 @@
                                         @endif
                                     </div> -->
                                     <a class="dropdown-item" href="{{ route('profile.edit') }}">Edit Profil</a>
-                                    <a class="dropdown-item" href="{{ route('user') }}">Chat</a>
+                                    <a class="dropdown-item" href="/chatify/3">Chat</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         Logout

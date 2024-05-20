@@ -22,9 +22,6 @@
 
     <!-- Add these lines just before the closing </body> tag -->
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.7/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.7/js/dataTables.bootstrap4.min.js"></script>
 
     {{-- message toastr --}}
     <link rel="stylesheet" href="{{ asset('assets/css/toastr.min.css') }}">
@@ -75,7 +72,7 @@
 
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ route('profile.edit') }}">Edit Profil</a>
-                        <a class="dropdown-item" href="{{ route('userAdmin') }}">Chat</a>
+                        <a class="dropdown-item" href="/chatify">Chat</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Logout
@@ -113,7 +110,6 @@
     <script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
-    @yield('script')
 </body>
 <footer>
     <p>Copyright © 2024 qlos-laundry</p>

@@ -24,7 +24,70 @@
         </div>
 
         <div class="page-sub-header">
-            <h3 class="page-title">Selamat Datang</h3>
+            <h3 class="page-title mb-3">Selamat Datang</h3>
+        </div>
+
+        <div class="card-container" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+            <div class="card border-primary mb-3" style="flex: 1; min-width: 13rem; max-width: calc(33.333% - 1rem);">
+                <div class="card-body text-primary" style="padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; flex-direction: column;">
+                        <h3 class="card-title">{{ $jumlahCustomer }}</h3>
+                        <p class="card-text">Data Customer</p>
+                    </div>
+                    <div class="icon" style="font-size: 3em; margin-right:20px;">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-primary" style="padding: 10px;">
+                    <a href="/customer">Kelola Customer <i class="fas fa-arrow-circle-right" style="transform: translateX(.25rem);"></i></a>
+                </div>
+            </div>
+
+            <div class="card border-primary mb-3" style="flex: 1; min-width: 13rem; max-width: calc(33.333% - 1rem);">
+                <div class="card-body text-primary" style="padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; flex-direction: column;">
+                        <h3 class="card-title">{{ $jumlahLayanan }}</h3>
+                        <p class="card-text">Data Layanan</p>
+                    </div>
+                    <div class="icon" style="font-size: 3em; margin-right:20px;">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-primary" style="padding: 10px;">
+                    <a href="/layanan">Kelola Layanan <i class="fas fa-arrow-circle-right" style="transform: translateX(.25rem);"></i></a>
+                </div>
+            </div>
+
+            <div class="card border-primary mb-3" style="flex: 1; min-width: 13rem; max-width: calc(33.333% - 1rem);">
+                <div class="card-body text-primary" style="padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; flex-direction: column;">
+                        <h3 class="card-title">{{ $jumlahPromo }}</h3>
+                        <p class="card-text">Data Promo</p>
+                    </div>
+                    <div class="icon" style="font-size: 3em; margin-right:20px;">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-primary" style="padding: 10px;">
+                    <a href="/promo">Kelola Promo <i class="fas fa-arrow-circle-right" style="transform: translateX(.25rem);"></i></a>
+                </div>
+            </div>
+
+            <div class="card border-primary mb-3" style="flex: 1; min-width: 13rem; max-width: calc(33.333% - 1rem);">
+                <div class="card-body text-primary" style="padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; flex-direction: column;">
+                        <h3 class="card-title">{{ $jumlahPesanan }}</h3>
+                        <p class="card-text">Data Pesanan</p>
+                    </div>
+                    <div class="icon" style="font-size: 3em; margin-right:20px">
+                        <i class="fas fa-cart-plus"></i>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-primary" style="padding: 10px;">
+                    <a href="/pesanan">Kelola Pesanan <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- Add more cards here as needed -->
         </div>
         <div class="card" style="margin-top: 5px;">
             <div class="card-header">

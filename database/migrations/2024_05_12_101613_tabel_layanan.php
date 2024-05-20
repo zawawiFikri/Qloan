@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('desc_layanan');
             $table->decimal('harga', 10, 2);
             $table->integer('durasi');
+            $table->enum('status', ['aktif', 'tidak aktif'])->default('aktif');
             $table->timestamps();
         });
     }

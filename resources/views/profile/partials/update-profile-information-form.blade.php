@@ -1,11 +1,11 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Profile Information') }}
+            {{ __('Informasi Profile') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __("Anda bisa lakukan edit pada profile akun anda dan juga merubah password anda") }}
         </p>
     </header>
 
@@ -56,7 +56,7 @@
 
         <div>
             <x-input-label for="no_tlp" :value="__('Nomer Telepon (WA)')" />
-            <x-text-input id="no_tlp" name="no_tlp" type="text" class="mt-1 block w-full" :value="old('no_tlp', $customer->no_tlp)" required autofocus autocomplete="no_tlp" />
+            <x-text-input id="no_tlp" name="no_tlp" type="number" class="mt-1 block w-full" :value="old('no_tlp', $customer->no_tlp)" required autofocus autocomplete="no_tlp" />
             <x-input-error class="mt-2" :messages="$errors->get('no_tlp')" />
         </div>
         @endif
@@ -72,7 +72,7 @@
         @if(Auth()->User()->roles == "karyawan")
         <div>
             <x-input-label for="no_tlp" :value="__('Nomer Telepon (WA)')" />
-            <x-text-input id="no_tlp" name="no_tlp" type="text" class="mt-1 block w-full" :value="old('no_tlp', $karyawan->no_tlp)" required autofocus autocomplete="no_tlp" />
+            <x-text-input id="no_tlp" name="no_tlp" type="number" class="mt-1 block w-full" :value="old('no_tlp', $karyawan->no_tlp)" required autofocus autocomplete="no_tlp" />
             <x-input-error class="mt-2" :messages="$errors->get('no_tlp')" />
         </div>
         @endif
