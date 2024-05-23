@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="card-footer bg-transparent border-primary" style="padding: 10px;">
-                <a href="/pesanan">Kelola Pesanan <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/pesanan">Konfirmasi Pesanan <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
 

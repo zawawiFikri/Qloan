@@ -114,5 +114,42 @@
 <footer>
     <p>Copyright © 2024 qlos-laundry</p>
 </footer>
+<script>
+    const kategoriDropdown1 = document.querySelector('.kategori-dropdown');
+        const layananDropdown1 = document.querySelector('.layanan-dropdown');
+        kategoriDropdown1.addEventListener('change', function() {
+            const selectedKategori = this.value;
+            $.ajax({
+                url: '{{ route("get_layanan_admin") }}',
+                type: 'POST',
+                data: { kategori_id: selectedKategori, _token: '{{csrf_token()}}' },
+                success: function(response) {
+                    layananDropdown1.innerHTML = '';
+                    const options = response.map(function(item) {
+                        return '<option value="' + item.id + '" >' + item.nama_layanan + '</option>';
+                    });
+                    layananDropdown1.innerHTML = options.join(''); 
+                }
+            });
+        });
 
+        var table = $('#tabel-pesanan').DataTable({
+            "paging": true,
+            "pageLength": 5,
+            "searching": true,
+            "ordering": false,
+            "info": false,
+            "scrollX": true,  // Enable horizontal scrolling
+            "language": {
+                "search": "Mencari",
+                "lengthMenu": "Tampil _MENU_ entri",
+                "paginate": {
+                    "first": "Pertama",
+                    "last": "Terakhir",
+                    "next": "Selanjutnya",
+                    "previous": "Sebelumnya"
+                }
+            }
+        });
+</script>
 </html>

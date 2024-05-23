@@ -141,6 +141,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <input type="hidden" id="existingLayananId" value="{{ $data->layanan_id }}">
                                 <label for="layanan_id" class="col-sm-2 col-form-label">Jenis Layanan</label>
                                 <div class="col-sm-10">
                                     <select class="form-select" id="layanan_id" name="layanan_id" required>
@@ -160,7 +161,6 @@
                                     </select>
                                 </div>
                             </div>
-                            <input type="hidden" id="existingLayananId" value="{{ $data->layanan_id }}">
                             <div class="form-group row">
                                 <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">
@@ -405,62 +405,31 @@
 
 <script>
     $(document).ready(function () {
-        const kategoriDropdown = document.querySelector('.form-select[name="kategori_id"]');
-        const layananDropdown = document.querySelector('.form-select[name="layanan_id"]');
-        kategoriDropdown.addEventListener('change', function() {
-            const selectedKategori = this.value;
-            $.ajax({
-                url: '{{ route("get_layanan_admin") }}',
-                type: 'POST',
-                data: { kategori_id: selectedKategori, _token: '{{csrf_token()}}' },
-                success: function(response) {
-                    layananDropdown.innerHTML = '';
-                    const options = response.map(function(item) {
-                        const isSelected = item.id == existingLayananId ? 'selected' : '';
-                        return '<option value="' + item.id + '" ' + isSelected + '>' + item.nama_layanan + '</option>';
-                    });
-                    layananDropdown.innerHTML = options.join(''); 
-                }
+        const kategoriDropdowns = document.querySelectorAll('.form-select[name="kategori_id"]');
+        const layananDropdowns = document.querySelectorAll('.form-select[name="layanan_id"]');
+        const existingLayananIds = document.querySelectorAll('#existingLayananId');
+        kategoriDropdowns.forEach((kategoriDropdown, index) => {
+            const layananDropdown = layananDropdowns[index];
+            const existingLayananId = existingLayananIds[index].value;
+            kategoriDropdown.addEventListener('change', function() {
+                const selectedKategori = this.value;
+                $.ajax({
+                    url: '{{ route("get_layanan_admin") }}',
+                    type: 'POST',
+                    data: { kategori_id: selectedKategori, _token: '{{csrf_token()}}' },
+                    success: function(response) {
+                        layananDropdown.innerHTML = '';
+                        const options = response.map(function(item) {
+                            const selected = item.id === parseInt(existingLayananId) ? 'selected' : '';
+                            return `<option value="${item.id}" ${selected}>${item.nama_layanan}</option>`;
+                        });
+                        layananDropdown.innerHTML = options.join(''); 
+                    }
+                });
             });
-        });
-        if (kategoriDropdown.value) {
-            kategoriDropdown.dispatchEvent(new Event('change'));
-        }
-        
-        const kategoriDropdown1 = document.querySelector('.kategori-dropdown');
-        const layananDropdown1 = document.querySelector('.layanan-dropdown');
-        kategoriDropdown1.addEventListener('change', function() {
-            const selectedKategori = this.value;
-            $.ajax({
-                url: '{{ route("get_layanan_admin") }}',
-                type: 'POST',
-                data: { kategori_id: selectedKategori, _token: '{{csrf_token()}}' },
-                success: function(response) {
-                    layananDropdown1.innerHTML = '';
-                    const options = response.map(function(item) {
-                        return '<option value="' + item.id + '" >' + item.nama_layanan + '</option>';
-                    });
-                    layananDropdown1.innerHTML = options.join(''); 
-                }
-            });
-        });
 
-        var table = $('#tabel-pesanan').DataTable({
-            "paging": true,
-            "pageLength": 5,
-            "searching": true,
-            "ordering": false,
-            "info": false,
-            "scrollX": true,  // Enable horizontal scrolling
-            "language": {
-                "search": "Mencari",
-                "lengthMenu": "Tampil _MENU_ entri",
-                "paginate": {
-                    "first": "Pertama",
-                    "last": "Terakhir",
-                    "next": "Selanjutnya",
-                    "previous": "Sebelumnya"
-                }
+            if (kategoriDropdown.value) {
+                kategoriDropdown.dispatchEvent(new Event('change'));
             }
         });
     });
