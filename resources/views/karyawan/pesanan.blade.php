@@ -23,6 +23,7 @@
                         <tr>
                             <th scope="col" style="ont-size: 12px;">No.</th>
                             <th scope="col" style="font-size: 12px;">Customer</th>
+                            <th scope="col" style="font-size: 12px;">Nomer Hp(WA)</th>
                             <th scope="col" style="font-size: 12px;">Kategori</th>
                             <th scope="col" style="font-size: 12px;">Layanan</th>
                             <th scope="col" style="font-size: 12px;">Promo</th>
@@ -42,6 +43,7 @@
                         <tr>
                             <td style="font-size:12px;">{{ $loop->iteration }}</td>
                             <td style="font-size:12px;">{{ $item->customer ? $item->customer->user->name : 'kosong' }}</td>
+                            <td style="font-size:12px;">{{ $item->customer ? $item->customer->no_tlp : 'kosong' }}</td>
                             <td style="font-size:12px;">{{ $item->kategori ? $item->kategori->nama_kategori : 'kosong' }}</td>
                             <td style="font-size:12px;">{{ $item->layanan ? $item->layanan->nama_layanan : 'kosong' }}</td>
                             <td style="font-size:12px;">{{ $item->promo ? $item->promo->nama_promo : 'kosong' }}</td>
