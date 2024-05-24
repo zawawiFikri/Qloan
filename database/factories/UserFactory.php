@@ -31,23 +31,23 @@ class UserFactory extends Factory
         ];
     }
 
-    public function admin(): UserFactory
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'roles' => 'admin',
-            ];
-        });
-    }
+    // public function admin(): UserFactory
+    // {
+    //     return $this->state(function (array $attributes) {
+    //         return [
+    //             'roles' => 'admin',
+    //         ];
+    //     });
+    // }
 
-    public function karyawan(): UserFactory
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'roles' => 'karyawan',
-            ];
-        });
-    }
+    // public function karyawan(): UserFactory
+    // {
+    //     return $this->state(function (array $attributes) {
+    //         return [
+    //             'roles' => 'karyawan',
+    //         ];
+    //     });
+    // }
 
 
     /**
@@ -60,5 +60,12 @@ class UserFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
         ]);
+    }
+
+    public function withRealData(array $data): UserFactory
+    {
+        return $this->state(function (array $attributes) use ($data) {
+            return $data;
+        });
     }
 }

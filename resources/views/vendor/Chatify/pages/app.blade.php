@@ -13,7 +13,9 @@
                 </nav>
             </nav>
             {{-- Search input --}}
-            <!-- <input type="text" class="messenger-search" placeholder="Search" /> -->
+            @if(!auth()->user()->customer)
+            <input type="text" class="messenger-search" placeholder="Search" />
+            @endif
             {{-- Tabs --}}
             {{-- <div class="messenger-listView-tabs">
                 <a href="#" class="active-tab" data-view="users">
@@ -64,8 +66,12 @@
                     <!-- <a href="#" class="add-to-favorite"><i class="fas fa-star"></i></a> -->
                     @if(auth()->user()->roles == "customer")
                     <a href="/dashboard"><i class="fas fa-home"></i></a>
-                    @else
+                    @endif
+                    @if(auth()->user()->roles == "admin")
                     <a href="/dashboard/admin"><i class="fas fa-home"></i></a>
+                    @endif
+                    @if(auth()->user()->roles == "karyawan")
+                    <a href="/dashboard/karyawan"><i class="fas fa-home"></i></a>
                     @endif
                     <a href="#" class="show-infoSide"><i class="fas fa-info-circle"></i></a>
                 </nav>
@@ -81,7 +87,7 @@
         {{-- Messaging area --}}
         <div class="m-body messages-container app-scroll">
             <div class="messages">
-                <p class="message-hint center-el"><span>Tolong, pilih salah satu kontak admin</span></p>
+                <p class="message-hint center-el"><span>Tolong, pilih salah satu kontak</span></p>
             </div>
             {{-- Typing indicator --}}
             <div class="typing-indicator">

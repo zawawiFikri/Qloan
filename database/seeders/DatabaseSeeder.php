@@ -16,22 +16,46 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->count(2)->admin()->create()->each(function ($user) {
-            if($user->roles == "admin"){
-                Admin::create([
-                    'user_id' => $user->id,
-                ]);
-            }
-        });
+        $adminData = [
+            [
+                'name' => 'Nova Aditama',
+                'gender' => 'Laki-laki',
+                'email' => 'NovaAditama@gmail.com',
+                'password' => bcrypt('12345678'),
+                'roles' => 'admin',
+            ],
+        ];
 
-        // Seed data karyawan
-        User::factory()->count(2)->karyawan()->create()->each(function ($user) {
-            if($user->roles == "karyawan"){
-                Karyawan::create([
-                    'user_id' => $user->id,
-                    'gaji' => 0,
-                ]);
-            }
-        });
+        foreach ($adminData as $data) {
+            $user = User::factory()->withRealData($data)->create();
+            Admin::create([
+                'user_id' => $user->id,
+            ]);
+        }
+
+        $karyawanData = [
+            [
+                'name' => 'Nendrik meinirmawati',
+                'gender' => 'Perempuan',
+                'email' => 'NendrikMeinir@gmail.com',
+                'password' => bcrypt('12345678'),
+                'roles' => 'karyawan',
+            ],
+            [
+                'name' => 'Tina Agustiana',
+                'gender' => 'Perempuan',
+                'email' => 'TinaAgustiana@gmail.com',
+                'password' => bcrypt('12345678'),
+                'roles' => 'karyawan',
+            ],
+        ];
+
+        foreach ($karyawanData as $data) {
+            $user = User::factory()->withRealData($data)->create();
+            Karyawan::create([
+                'user_id' => $user->id,
+                'gaji' => 0,
+            ]);
+        }
     }
 }
