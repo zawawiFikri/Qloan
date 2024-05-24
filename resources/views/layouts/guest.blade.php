@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link rel="shortcut icon" href="{{ asset('images/icon.png') }}">
+        <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}">
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 

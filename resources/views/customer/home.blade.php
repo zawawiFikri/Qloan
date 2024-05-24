@@ -270,8 +270,7 @@
                     <form action="{{ route("create_pesanan") }}" method="post" class="contact__form" enctype="multipart/form-data">
                     @csrf
                         <div class="Contact__head" style="margin-bottom:30px;">
-                            <h4>Form Pesanan</h4> <br>
-                            <i style="color: red;">* Tolong Lengkapi dulu Data Profile anda sebelum membuat pesanan</i>
+                            <h4>Form Pesanan</h4>
                         </div>
                         <div class="contact__inputs">
                             <input type="hidden" name="customer_id" id="customer_id" value="{{ auth()->user()->customer->id }}">

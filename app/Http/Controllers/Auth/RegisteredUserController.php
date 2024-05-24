@@ -37,6 +37,8 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'gender' => ['required'],
+            'no_tlp' => ['required'],
+            'alamat' => ['required'],
         ]);
 
 
@@ -54,6 +56,8 @@ class RegisteredUserController extends Controller
         if ($user->roles = "customer") {
             Customer::create([
                 'user_id' => $user->id,
+                'no_tlp' => $request->no_tlp,
+                'alamat' => $request->alamat,
             ]);
             ChFavorite::create([
                 'user_id' => $user->id,
