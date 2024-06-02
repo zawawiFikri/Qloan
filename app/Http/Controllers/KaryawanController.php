@@ -4,19 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pesanan;
+use App\Models\Promo;
 
 class KaryawanController extends Controller
 {
     public function dataKaryawan()
     {
         $jumlahPesanan = Pesanan::count();
-        return view('karyawan.dashboard', compact('jumlahPesanan'));
+        return view('karyawan.dashboard', [
+            "jumlahPesanan" => $jumlahPesanan,
+        ]);
     }
     public function pesanan()
     {
+        $dataPromo = Promo::where('status', 'aktif')->get();
         $dataPesanan = Pesanan::all();
         return view('karyawan.pesanan', [
             "dataPesanan" => $dataPesanan,
+            "dataPromo" => $dataPromo,
         ]);
     }
     public function update(Request $request, $id)
@@ -32,23 +37,24 @@ class KaryawanController extends Controller
             'status_pesanan' => 'required',
         ], $message);
 
-        if($data->promo){
             $data->bobot = $request->bobot;
+            $data->promo_id = $request->promo_id;
             $data->status_pesanan = $request->status_pesanan;
-            $totalawal = ($data->layanan->harga * $request->bobot);
-            $diskon = $totalawal * ($data->promo->diskon/100);
-            $data->total_pembayaran = $totalawal-$diskon;
             $data->parfum = $request->parfum;
             $data->karyawan_id = auth()->user()->karyawan->id;
-        }else{
-            $data->bobot = $request->bobot;
-            $data->status_pesanan = $request->status_pesanan;
-            $totalawal = ($data->layanan->harga * $request->bobot);
-            $data->total_pembayaran = $totalawal;
-            $data->parfum = $request->parfum;
-            $data->karyawan_id = auth()->user()->karyawan->id;
-        }
-        $data->save();
+            $data->save();
+
+            if($data->promo){
+                $totalawal = ($data->layanan->harga * $request->bobot);
+                $diskon = $totalawal * ($data->promo->diskon/100);
+                $data->total_pembayaran = $totalawal-$diskon;
+                $data->save();
+            }else{
+                $totalawal = ($data->layanan->harga * $request->bobot);
+                $data->total_pembayaran = $totalawal;
+                $data->save();
+            }
+
         return redirect('/pesanan')->with('success', 'Data berhasil disimpan');
 
     }

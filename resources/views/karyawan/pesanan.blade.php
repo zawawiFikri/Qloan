@@ -42,15 +42,15 @@
                         @foreach ($dataPesanan as $item)
                         <tr>
                             <td style="font-size:12px;">{{ $loop->iteration }}</td>
-                            <td style="font-size:12px;">{{ $item->customer ? $item->customer->user->name : 'kosong' }}</td>
-                            <td style="font-size:12px;">{{ $item->customer ? $item->customer->no_tlp : 'kosong' }}</td>
-                            <td style="font-size:12px;">{{ $item->kategori ? $item->kategori->nama_kategori : 'kosong' }}</td>
-                            <td style="font-size:12px;">{{ $item->layanan ? $item->layanan->nama_layanan : 'kosong' }}</td>
-                            <td style="font-size:12px;">{{ $item->promo ? $item->promo->nama_promo : 'kosong' }}</td>
+                            <td style="font-size:12px;">{{ $item->customer ? $item->customer->user->name : 'Kosong' }}</td>
+                            <td style="font-size:12px;">{{ $item->customer ? $item->customer->no_tlp : 'Kosong' }}</td>
+                            <td style="font-size:12px;">{{ $item->kategori ? $item->kategori->nama_kategori : 'Kosong' }}</td>
+                            <td style="font-size:12px;">{{ $item->layanan ? $item->layanan->nama_layanan : 'Kosong' }}</td>
+                            <td style="font-size:12px;">{{ $item->promo ? $item->promo->nama_promo : 'Kosong' }}</td>
                             <td style="font-size:12px;">{{ $item->parfum }}</td>
-                            <td style="font-size:12px;">{{ $item->tgl_pesanan ?: 'kosong' }}</td>
-                            <td style="font-size:12px;">{{ $item->alamat ?: 'kosong' }}</td>
-                            <td style="font-size:12px;">{{ $item->catatan ?: 'kosong' }}</td>
+                            <td style="font-size:12px;">{{ $item->tgl_pesanan ?: 'Kosong' }}</td>
+                            <td style="font-size:12px;">{{ $item->alamat ?: 'Kosong' }}</td>
+                            <td style="font-size:12px;">{{ $item->catatan ?: 'Kosong' }}</td>
                             @if($item->bobot && $item->kategori->id == 4)
                             <td style="font-size:12px;">{{ $item->bobot.' Barang'}}</td>
                             @endif
@@ -58,15 +58,15 @@
                             <td style="font-size:12px;">{{ $item->bobot.' Kg'}}</td>
                             @endif
                             @if(!$item->bobot)
-                            <td style="font-size:12px;">{{ $item->bobot = 'kosong' }}</td>
+                            <td style="font-size:12px;">{{ $item->bobot = 'Kosong' }}</td>
                             @endif
                             @if($item->total_pembayaran)
                             <td style="font-size:12px;">{{ 'Rp.'.$item->total_pembayaran }}</td>
                             @else
-                            <td style="font-size:12px;">{{ $item->total_pembayaran = 'kosong' }}</td>
+                            <td style="font-size:12px;">{{ $item->total_pembayaran = 'Kosong' }}</td>
                             @endif
-                            <td style="font-size:12px;">{{ $item->jenis_pembayaran ?: 'kosong' }}</td>
-                            <td style="font-size:12px;">{{ $item->status_pesanan ?: 'kosong' }}</td>
+                            <td style="font-size:12px;">{{ $item->jenis_pembayaran ?: 'Kosong' }}</td>
+                            <td style="font-size:12px;">{{ $item->status_pesanan ?: 'Kosong' }}</td>
                             <td class="justify-content">
                                 <button class="btn btn-warning btn-sm" data-bs-toggle="modal"
                                     data-bs-target="#edit_pesanan_{{ $item->id }}">Edit
@@ -102,6 +102,19 @@
                                 <div class="col-sm-10">
                                     <input type="number" class="form-control" name="bobot" id="bobot"
                                         placeholder="Total bobot pesanan" value="{{$data->bobot}}" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="promo_id" class="col-sm-2 col-form-label">Pilih Promo</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" id="promo_id" name="promo_id">
+                                    <option selected disabled>Pilih Jenis promo</option>
+                                    @foreach ($dataPromo as $item)
+                                    <option value="{{ $item->id }}" {{ $data->promo_id == $item->id ? 'selected' :
+                                            '' }}>{{ $item->nama_promo }}</option>
+                                    @endforeach
+                                    <option value="">Tidak Ada Promo</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">

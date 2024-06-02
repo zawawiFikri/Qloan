@@ -293,16 +293,6 @@
                             </div>
 
                             <div class="contact__content">
-                                <select class="contact__input" id="promo_id" name="promo_id">
-                                    <option value="" disabled selected hidden>Pilih Promo</option>
-                                    @foreach($dataPromo as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama_promo }}</option>
-                                    @endforeach
-                                </select>
-                                <label for="promo_id" class="contact__label">Promo</label>
-                            </div>
-
-                            <div class="contact__content">
                                 <select class="contact__input" id="jenis_pembayaran" name="jenis_pembayaran" required>
                                     <option value="" disabled selected hidden>Pilih Jenis Pembayaran</option>
                                     <option value="Tunai">Tunai</option>
@@ -363,12 +353,12 @@
                             @foreach ($dataPesanan as $item)
                             <tr>
                                 <td style="font-size:12px; color: white;">{{ $loop->iteration }}</td>
-                                <td style="font-size:12px; color: white;">{{ $item->kategori ? $item->kategori->nama_kategori : 'kosong' }}</td>
-                                <td style="font-size:12px; color: white;">{{ $item->layanan ? $item->layanan->nama_layanan : 'kosong' }}</td>
-                                <td style="font-size:12px; color: white;">{{ $item->promo ? $item->promo->nama_promo : 'kosong' }}</td>
-                                <td style="font-size:12px; color: white;">{{ $item->tgl_pesanan ?: 'kosong' }}</td>
-                                <td style="font-size:12px; color: white;">{{ $item->alamat ?: 'kosong' }}</td>
-                                <td style="font-size:12px; color: white;">{{ $item->catatan ?: 'kosong' }}</td>
+                                <td style="font-size:12px; color: white;">{{ $item->kategori ? $item->kategori->nama_kategori : 'Kosong' }}</td>
+                                <td style="font-size:12px; color: white;">{{ $item->layanan ? $item->layanan->nama_layanan : 'Kosong' }}</td>
+                                <td style="font-size:12px; color: white;">{{ $item->promo ? $item->promo->nama_promo : 'Kosong' }}</td>
+                                <td style="font-size:12px; color: white;">{{ $item->tgl_pesanan ?: 'Kosong' }}</td>
+                                <td style="font-size:12px; color: white;">{{ $item->alamat ?: 'Kosong' }}</td>
+                                <td style="font-size:12px; color: white;">{{ $item->catatan ?: 'Kosong' }}</td>
                                 @if($item->bobot && $item->kategori->id == 4)
                                 <td style="font-size:12px; color: white;">{{ $item->bobot.' Barang'}}</td>
                                 @endif
@@ -376,14 +366,14 @@
                                 <td style="font-size:12px; color: white;">{{ $item->bobot.' Kg'}}</td>
                                 @endif
                                 @if(!$item->bobot)
-                                <td style="font-size:12px; color: white;">{{ $item->bobot = 'kosong' }}</td>
+                                <td style="font-size:12px; color: white;">{{ $item->bobot = 'Kosong' }}</td>
                                 @endif
                                 @if($item->total_pembayaran)
                                 <td style="font-size:12px; color: white;">{{ 'Rp.'.$item->total_pembayaran }}</td>
                                 @else
-                                <td style="font-size:12px; color: white;">{{ $item->total_pembayaran = 'kosong' }}</td>
+                                <td style="font-size:12px; color: white;">{{ $item->total_pembayaran = 'Kosong' }}</td>
                                 @endif
-                                <td style="font-size:12px; color: white;">{{ $item->status_pesanan ?: 'kosong' }}</td>
+                                <td style="font-size:12px; color: white;">{{ $item->status_pesanan ?: 'Kosong' }}</td>
                             </tr>
                             @endforeach
                             </tbody>

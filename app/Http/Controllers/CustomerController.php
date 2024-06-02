@@ -64,7 +64,6 @@ class CustomerController extends Controller
         $data->id = $request->id;
         $data->kategori_id = $request->kategori_id;
         $data->layanan_id = $request->layanan_id;
-        $data->promo_id = $request->promo_id;
         $data->customer_id = $request->customer_id;
         $data->jenis_pembayaran = $request->jenis_pembayaran;
         $data->alamat = $request->alamat;
