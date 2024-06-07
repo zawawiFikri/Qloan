@@ -15,7 +15,7 @@
                         Anda ingin melakukan request jenis pesanan tertentu yang tidak terdaftar di menu layanan?. 
                         Silahkan gunakan fitur chat yang telah kami sediakan khusus untuk anda, Terimah kasih.
                         </p>
-                        <a href="/chatify/3" class="button button--flex">
+                        <a href="https://wa.me/6282219544848" target="_blank" class="button button--flex">
                             Chat <i class="ri-arrow-right-down-line button__icon"></i>
                         </a>
                     </div>

@@ -71,6 +71,49 @@ class CustomerController extends Controller
         $data->catatan = $request->catatan;
 
         $data->save();
-        return redirect('/dashboard#form_pesanan')->with('success1', 'Pesanan telah dikirim');
+
+        $curl = curl_init();
+        $nomer = $data->customer->no_tlp;
+        $nama = $data->customer->user->name;
+        $tanggal = now();
+        $kategori = $data->kategori->nama_kategori;
+        $layanan = $data->layanan->nama_layanan;
+        $pembayaran = $data->jenis_pembayaran;
+        $catatan = $data->catatan;
+        $status = $data->status_pesanan;
+
+        $message = 
+           "QLOS LAUNDRY BLITAR\n" .
+           "=============================\n".
+           "ID Pesanan : $data->id\n".
+           "Atas nama : $nama\n" .
+           "Tanggal pesanan : $tanggal\n" .
+           "Kategori pesanan : $kategori\n" .
+           "Layanan pesanan : $layanan\n" .
+           "Jenis pembayaran : $pembayaran\n" .
+           "Catatan : $catatan\n". 
+           "Status : Menunggu Konfirmasi";
+
+        $token = 'qwSHX-U7yb!1-eCBmbun';
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => 'https://api.fonnte.com/send',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS => array('target' => $nomer,'message' => $message),
+        CURLOPT_HTTPHEADER => array(
+            'Authorization: '. $token
+        ),
+        ));
+
+        curl_exec($curl);
+        curl_close($curl);
+
+        return redirect('/dashboard#form_pesanan')->with('success1', 'Pesanan telah dikirim, Cek WhatsApp Anda');
     }
 }

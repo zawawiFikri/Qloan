@@ -72,7 +72,7 @@
 
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ route('profile.edit') }}">Edit Profil</a>
-                        <a class="dropdown-item" href="/chatify">Chat</a>
+                        <a class="dropdown-item" href="https://wa.me/" target="_blank">Chat</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Logout

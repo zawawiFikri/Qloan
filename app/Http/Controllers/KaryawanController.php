@@ -55,6 +55,57 @@ class KaryawanController extends Controller
                 $data->save();
             }
 
+            $curl = curl_init();
+            $nomer = $data->customer->no_tlp;
+            $id = $data->id;
+            $nama = $data->customer->user->name;
+            $kategori = $data->kategori->nama_kategori;
+            $layanan = $data->layanan->nama_layanan;
+            $pembayaran = $data->jenis_pembayaran;
+            $total = $data->total_pembayaran;
+            $status = $data->status_pesanan;
+            $parfum = $data->parfum;
+            $promo = $data->promo->nama_promo;
+            if($data->kategori->id == 4){
+                $bobot = "$data->bobot Pasang";
+            }else{
+                $bobot = "$data->bobot Kg";
+            }
+    
+            $messages = 
+               "QLOS LAUNDRY BLITAR\n" .
+               "=============================\n".
+               "ID Pesanan : $id\n".
+               "Atas nama : $nama\n" .
+               "Parfum : $parfum\n".
+               "Kategori pesanan : $kategori\n" .
+               "Layanan pesanan : $layanan\n" .
+               "Promo : $promo\n".
+               "Jenis pembayaran : $pembayaran\n" .
+               "Bobot Total : $bobot\n".
+               "Total pembayaran : Rp.$total,00\n" .
+               "Status : $status";
+    
+            $token = 'qwSHX-U7yb!1-eCBmbun';
+            
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://api.fonnte.com/send',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => array('target' => $nomer,'message' => $messages),
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: '. $token
+            ),
+            ));
+    
+            curl_exec($curl);
+            curl_close($curl);
+
         return redirect('/pesanan')->with('success', 'Data berhasil disimpan');
 
     }
